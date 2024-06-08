@@ -589,8 +589,8 @@ function AddRewardMask() {
         const ele = document.querySelectorAll('.twikoo-count')
         if (!ele) return
         twikoo.getCommentsCount({
-            envId: 'https://panjoel-twikoo.netlify.app/',
-            region: 'ap-hangzhou',
+            envId: 'https://panjoel-twikoo.netlify.app/.netlify/functions/twikoo',
+            region: 'ap-shanghai',
             urls: [window.location.pathname],
             includeReply: false
         }).then(res => {
@@ -602,8 +602,8 @@ function AddRewardMask() {
     const init = () => {
         twikoo.init(Object.assign({
             el: '#twikoo-wrap',
-            envId: 'https://panjoel-twikoo.netlify.app/',
-            region: 'ap-hangzhou',
+            envId: 'https://panjoel-twikoo.netlify.app/.netlify/functions/twikoo',
+            region: 'ap-shanghai',
             path: window.location.pathname,
             onCommentLoaded: () => {
                 GLOBAL_CONFIG.lightbox && utils.lightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
@@ -632,14 +632,14 @@ function AddRewardMask() {
     }
 })()
 </script><script>async function barrageTwikoo() {
-    await fetch("https://panjoel-twikoo.netlify.app/", {
+    await fetch("https://panjoel-twikoo.netlify.app/.netlify/functions/twikoo", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
             event: "COMMENT_GET",
-            accessToken: "",
+            accessToken: "c6d1a1da97cafeb2a0c42b0a7e8f204d",
             url: window.location.pathname
         })
     }).then(async res => {
